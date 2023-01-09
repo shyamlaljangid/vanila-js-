@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanila java script program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="vanilaprogram.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="box">
+            <div class="input">
+                <h2> Text to Add</h2>
+                <form action="">
+                    <input type="text" placeholder="Enter your text">
+                    <!-- <button>Add to list</button> -->
+                    <input type="submit" value="Add to list">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        let inp = document.querySelector("input")
+
+        let form = document.querySelector("form")
+
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            let inpvalue = inp.value
+
+
+            let div = document.createElement("div")
+
+            let para = document.createElement("p")
+            para.innerText = inpvalue
+            div.classList.add("flex")
+            div.appendChild(para)
+
+
+            let span = document.createElement("span")
+            div.appendChild(span)
+            let a1 = document.createElement("a")
+            a1.innerText = "X"
+            a1.classList.add("a1")
+            span.appendChild(a1)
+
+            let a2 = document.createElement("a")
+            a2.innerText = "!"
+            a2.classList.add("a2")
+            span.appendChild(a2)
+
+            let a3 = document.createElement("a")
+            a3.innerText = "|-"
+            a3.classList.add("a3")
+            span.appendChild(a3)
+            form.insertAdjacentElement("afterend", div)
+
+
+
+
+            let all = document.querySelectorAll(".a1")
+
+            for (let i = 0; i <=all.length; i++) {
+
+                all[i].onclick = () => {
+                    div.remove()
+                }
+
+            }
+
+            let second = document.querySelectorAll(".a2")
+            for (let j = 0; j < second.length; j++) {
+
+                second[j].onclick = () => {
+                    inp.innerHTML = para.innerText
+                    console.log("shyam")
+                }
+            }
+
+            let three = document.querySelectorAll(".a3")
+            for (let k = 0; k < three.length; k++) {
+                three[k].onclick = () => {
+                    div.style.textDecoration = "line-through"
+                    div.style.color = "green"
+                }
+            }
+
+
+
+            form.reset()
+        }
+
+    </script>
+</body>
+
+</html>
