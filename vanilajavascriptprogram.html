@@ -29,6 +29,7 @@
         let inp = document.querySelector("input")
 
         let form = document.querySelector("form")
+        
 
         form.onsubmit = (e) => {
             e.preventDefault()
@@ -66,10 +67,10 @@
 
             let all = document.querySelectorAll(".a1")
 
-            for (let i = 0; i <=all.length; i++) {
+            for (let i = 0; i <all.length; i++) {
 
                 all[i].onclick = () => {
-                    div.remove()
+                    all[i].parentElement.parentElement.remove()
                 }
 
             }
@@ -78,16 +79,16 @@
             for (let j = 0; j < second.length; j++) {
 
                 second[j].onclick = () => {
-                    inp.innerHTML = para.innerText
-                    console.log("shyam")
+                    inp.value = second[j].parentElement.previousElementSibling.innerText
+                
                 }
             }
 
             let three = document.querySelectorAll(".a3")
             for (let k = 0; k < three.length; k++) {
                 three[k].onclick = () => {
-                    div.style.textDecoration = "line-through"
-                    div.style.color = "green"
+                    three[k].parentElement.parentElement.style.textDecoration = "line-through"
+                    three[k].parentElement.parentElement.style.color = "green"
                 }
             }
 
